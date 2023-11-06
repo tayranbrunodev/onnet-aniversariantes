@@ -1,68 +1,4 @@
-/*Meu modelo
 
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.container {
-    display: flex;
-}
-
-.table-container {
-    flex: 1;
-    padding: 20px;
-}
-
-
-
-table {
-
-    width: 700px;
-    height: 20px;
-    
-    border: 1px solid #000000;
-    background: #14286E;
-    border-collapse:collapse; 
-    
-    
-}
-
-th, td {
-    padding: 18px;
-    text-align: left;
-    border-bottom: 1px solid #000000;
-}
-
-th {
-
-    background-color: #ffffff;     
-}
-
-.calendar {
-    flex: 1;
-    padding: 20px;
-    border: 1px solid #ddd;
-}
-
-.logo {
-    flex: 1;
-    padding: 20px;
-    border: 1px solid #ddd;
-}
-
-tbody tr{
-    color:white;
-}
-
-h2{
-   align-items: center; 
-   color: #14286E;
-}
-*/
 body {
     display: flex;
     justify-content: center;
@@ -71,25 +7,32 @@ body {
     margin: 0;
     flex-wrap: wrap;
     position: relative; /* Adicione esta linha */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .container {
     display: flex;
-    flex-wrap: wrap;
+    width: 100%;
+    
 }
 
 .table-container {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
+    width: 100%;
 }
 
 table {
-    width: 100%;
+    width: 85%;
     height: 20px;
     margin: auto; /* Adicione esta linha */
     border: 1px solid #000000;
     background: #14286E;
     border-collapse: collapse;
+    font-size: 80%;
 }
 
 th, td {
@@ -109,23 +52,6 @@ tbody tr{
 h2{
    align-items: center; 
    color: #14286E;
-}
-
-.calendar {
-    flex: 1;
-    padding: 20px;
-    border: 1px solid #ddd;
-    position: absolute; /* Adicione esta linha */
-    right: 0; /* Adicione esta linha */
-}
-
-.logo {
-    flex: 1;
-    padding: 20px;
-    border: 1px solid #ddd;
-    position: absolute; /* Adicione esta linha */
-    bottom: 0; /* Adicione esta linha */
-    right: 0; /* Adicione esta linha */
 }
 
 @media (max-width: 600px) {
@@ -141,4 +67,17 @@ h2{
         padding: 20px;
         min-width: auto;
     }
+}
+.esquerda
+{
+    width: 75vw;
+    background-color: aquamarine;
+    overflow-y:auto;
+}
+.direita
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 25vw;
 }

@@ -33,10 +33,22 @@ document.addEventListener("DOMContentLoaded", function() {
         const row = tbody.insertRow();
 
         keysToShow.forEach(key => {
-          if(!item.Demissao){
-          const cell = row.insertCell();
-          let text;
-            switch (key) {
+          if (key === "Nascimento") {
+            if (item.Nascimento) {
+              const isoDateString = item.Nascimento;
+              const dateObj = new Date(isoDateString);
+              item.Nascimento = `${dateObj.getDate().toString().padStart(2, '0')}/${(dateObj.getMonth() + 1).toString().padStart(2, '0')}/${dateObj.getFullYear()}`;
+            } else {
+              item.Nascimento = '-';
+            }
+          }
+
+          if (!item.Demissao) {
+            const cell = row.insertCell();
+            let text;
+
+            switch (key)
+ {
               case "Cidade":
                 text = document.createTextNode(item.Cidade ? item.Cidade.Descricao : "-");
                 break;
@@ -45,13 +57,14 @@ document.addEventListener("DOMContentLoaded", function() {
                 break;
               case "Telefone":
                 text = document.createTextNode(item.Telefone ? item.Telefone : item.Celular);
+                break;
               default:
                 text = document.createTextNode(item[key] || "-");
                 break;
             }
-  
+
             cell.appendChild(text);
-          }else{
+          } else {
             
           }
           
