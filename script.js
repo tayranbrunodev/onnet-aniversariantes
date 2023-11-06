@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 text = document.createTextNode(item.Funcao ? item.Funcao.Descricao : "-");
                 break;
               case "Telefone":
-                text = document.createTextNode(item.Telefone ? item.Telefone : item.Celular);
+                text = document.createTextNode(item.Telefone ? item.Telefone : (item.Celular ? item.Celular : '-'));
                 break;
               default:
                 text = document.createTextNode(item[key] || "-");
@@ -65,11 +65,10 @@ document.addEventListener("DOMContentLoaded", function() {
 
             cell.appendChild(text);
           } else {
-            
+            // Lógica para lidar com Demissao
           }
-          
         });
-      })
+      });
     })
     .catch(error => {
       console.error("Erro ao buscar dados da API:", error);
