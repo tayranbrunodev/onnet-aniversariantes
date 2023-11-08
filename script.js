@@ -29,7 +29,29 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .then(data => {
       const tbody = document.querySelector('tbody');
-      data.forEach(item => {
+
+      // Obter o mês atual
+      const currentMonth = date.getMonth() + 1;
+
+      // Filtrar os funcionários que têm aniversário no mês atual
+      const aniversariantes = data.filter(item => {
+        if (item.Nascimento) {
+          const isoDateString = item.Nascimento;
+          const dateObj = new Date(isoDateString);
+          const mesNascimento = dateObj.getMonth() + 1;
+          return mesNascimento == currentMonth;
+        }
+        return false;
+      });
+      // Ordenar os aniversariantes pelo dia do mês em ordem crescente
+      aniversariantes.sort((a, b) => {
+        const dateA = new Date(a.Nascimento);
+        const dateB = new Date(b.Nascimento);
+        return dateA.getDate() - dateB.getDate();
+      });
+
+      // Exibir os funcionários aniversariantes na tabela
+      aniversariantes.forEach(item => {
         const row = tbody.insertRow();
 
         keysToShow.forEach(key => {
@@ -69,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
       });
     })
+
     .catch(error => {
       console.error("Erro ao buscar dados da API:", error);
     });
