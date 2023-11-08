@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   const keysToShow = ["Nome", "Telefone", "Cidade", "Funcao", "Nascimento"];
 
   fetch("https://autenticador.secullum.com.br/Token?grant_type=password&username=desenvolvimento05.onnetmais@gmail.com&password=D123&client_id=3", {
@@ -47,8 +47,7 @@ document.addEventListener("DOMContentLoaded", function() {
             const cell = row.insertCell();
             let text;
 
-            switch (key)
- {
+            switch (key) {
               case "Cidade":
                 text = document.createTextNode(item.Cidade ? item.Cidade.Descricao : "-");
                 break;

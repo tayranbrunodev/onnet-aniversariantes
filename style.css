@@ -30,7 +30,7 @@ table {
     height: 20px;
     margin: auto; /* Adicione esta linha */
     border: 1px solid #000000;
-    background: #14286E;
+    background: linear-gradient(to bottom,#144b9E,#16b7ef);
     border-collapse: collapse;
     font-size: 80%;
 }
@@ -47,11 +47,12 @@ th {
 
 tbody tr{
     color:white;
+    
 }
 
 h2{
    align-items: center; 
-   color: #14286E;
+   color: #ffffff;
 }
 
 @media (max-width: 600px) {
@@ -71,7 +72,7 @@ h2{
 .esquerda
 {
     width: 75vw;
-    background-color: aquamarine;
+    background: linear-gradient(to right,#10c178,#2adeb0 );
     overflow-y:auto;
 }
 .direita
@@ -80,4 +81,18 @@ h2{
     flex-direction: column;
     align-items: center;
     width: 25vw;
+    background: linear-gradient(to right,#2adeb0,#10c178 );
+}
+
+*::-webkit-scrollbar {
+border-radius: 15%;
+width: 15px; /* Largura da barra de rolagem */
+}
+
+*::-webkit-scrollbar-thumb {
+background-color: #16b7ef /* Cor da barra de rolagem */
+}
+
+*::-webkit-scrollbar-track {
+background-color: rgba(236, 241, 240, 0.05); /* Cor da área de rolagem */
 }
