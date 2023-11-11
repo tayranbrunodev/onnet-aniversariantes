@@ -29,10 +29,11 @@ table {
     width: 85%;
     height: 20px;
     margin: auto; /* Adicione esta linha */
-    border: 1px solid #000000;
-    background: linear-gradient(to bottom,#144b9E,#16b7ef);
+    background: #1599d8;
     border-collapse: collapse;
     font-size: 80%;
+    box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+    
 }
 
 th, td {
@@ -43,7 +44,7 @@ th, td {
 }
 
 th {
-    background-color: #ffffff;     
+    background-color: #ffffff;    
 }
 
 tbody tr{
@@ -54,6 +55,7 @@ tbody tr{
 h1{
    align-items: center; 
    color: #ffffff;
+   text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.3);
 }
 
 @media (max-width: 600px) {
@@ -75,6 +77,7 @@ h1{
     width: 70vw;
     background: linear-gradient(to right,#10c178,#2adeb0 );
     overflow-y:auto;
+    font-weight: bold;
 }
 .direita
 {

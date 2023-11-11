@@ -1,3 +1,4 @@
+// scriptCalendar.js
 const date = new Date();
 
 const renderCalendar = () => {
