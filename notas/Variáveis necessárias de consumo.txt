@@ -1,7 +1,0 @@
-Nome
-Telefone
-CidadeId(Cidade)-Descricao
-DepartamentoId(Departamento)-Descricao
-Nascimento
-
-Demissao: null
