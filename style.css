@@ -12,8 +12,7 @@ body {
 
 .container {
     display: flex;
-    width: 100%;
-    
+    width: 100vw;
 }
 
 .table-container {
@@ -59,18 +58,17 @@ h1{
 }
 
 @media (max-width: 600px) {
-    body {
-        display: block;
-    }
-    .container {
-        display: block;
-    }
+    
+    .direita{left: 0px;position: relative;width: 100%;display: flex;}
     .table-container,
     .calendar,
     .logo {
         padding: 20px;
         min-width: auto;
+        overflow-x: auto;
     }
+    .table-container{width: 100%;}
+    .container{flex-direction: column; display: flex;}
 }
 .esquerda
 {
@@ -81,12 +79,16 @@ h1{
 }
 .direita
 {
+    left: 70%;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 30vw;
+    height: 100vh;
     background: linear-gradient(to right,#2adeb0,#10c178 );
     font-weight: bold;
+    justify-content: space-between;
+    position: fixed;
 }
 
 *::-webkit-scrollbar {
@@ -102,4 +104,6 @@ background-color: #16b7ef /* Cor da barra de rolagem */
 background-color: rgba(236, 241, 240, 0.05); /* Cor da área de rolagem */
 }
 
-
+.logo{
+    margin-bottom: 20px;
+}
