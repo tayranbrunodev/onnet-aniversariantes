@@ -28,7 +28,7 @@ table {
     width: 85%;
     height: 20px;
     margin: auto; /* Adicione esta linha */
-    background: #1599d8;
+    background: white;
     border-collapse: collapse;
     font-size: 80%;
     box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
@@ -39,15 +39,19 @@ th, td {
     padding: 18px;
     text-align: left;
     border-bottom: 1px solid #000000;
-    font-size: 1.2rem
+    font-size: 1.2rem;
+    border-color: #1599d8;
 }
 
 th {
-    background-color: #ffffff;    
+    background-color: #1599d8;    
+    color: white;
+    
 }
 
 tbody tr{
-    color:white;
+    color:#1599d8;
+    font-weight: bold;
     font-size: 1.2rem;
 }
 
@@ -106,4 +110,12 @@ background-color: rgba(236, 241, 240, 0.05); /* Cor da área de rolagem */
 
 .logo{
     margin-bottom: 20px;
+}
+
+.aniversariantes-do-dia{
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
