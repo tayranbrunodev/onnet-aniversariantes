@@ -31,12 +31,17 @@ document.addEventListener("DOMContentLoaded", function () {
         return response.json();
       })
       .then(data => {
+        fetchedData = data;
         // Chamar a função para renderizar os aniversariantes
         updateAniversariantes(data);
       })
       .catch(error => {
         console.error("Erro ao buscar dados da API:", error);
-      });
+      })
+      .then(() => { 
+        // Chamar a função para renderizar os aniversariantes do dia
+        updateAniversariantesDoDia(fetchedData);
+      })
   }
 
   // Função para atualizar os aniversariantes
@@ -125,5 +130,67 @@ document.addEventListener("DOMContentLoaded", function () {
     fetchDataAndRender();
   });
 
-  // Outras configurações ou lógica de inicialização podem ser adicionadas aqui
+   // Função para atualizar os aniversariantes do dia
+   function updateAniversariantesDoDia(data) {
+
+    const tbodyDia = document.getElementById('aniversariantesDoDia').querySelector('tbody');
+    const currentDay = date.getDate();
+    const currentMonth = date.getMonth() + 1;
+
+    // Filtrar os funcionários que têm aniversário no dia atual
+    const aniversariantesDoDia = data.filter(item => {
+      if (item.Nascimento) {
+        const isoDateString = item.Nascimento;
+        const dateObj = new Date(isoDateString);
+        const diaNascimento = dateObj.getDate();
+        const mesNascimento = dateObj.getMonth() + 1;
+        return diaNascimento == currentDay&& mesNascimento == currentMonth;
+      }
+      return false;
+    });
+    console.log("Hoje é o dia:", date.getDate());
+    // Limpar a tabela antes de inserir os novos dados
+    tbodyDia.innerHTML = "";
+
+    // Exibir os funcionários aniversariantes do dia na tabela
+    aniversariantesDoDia.forEach(item => {
+      const row = tbodyDia.insertRow();
+
+      keysToShow.forEach(key => {
+        if (key === "Nascimento") {
+          if (item.Nascimento) {
+            const isoDateString = item.Nascimento;
+            const dateObj = new Date(isoDateString);
+            item.Nascimento = `${dateObj.getDate().toString().padStart(2, '0')}/${(dateObj.getMonth() + 1).toString().padStart(2, '0')}/${dateObj.getFullYear()}`;
+          } else {
+            item.Nascimento = '-';
+          }
+        }
+
+        if (!item.Demissao) {
+          const cell = row.insertCell();
+          let text;
+
+          switch (key) {
+            case "Cidade":
+              text = document.createTextNode(item.Cidade ? item.Cidade.Descricao : "-");
+              break;
+            case "Funcao":
+              text = document.createTextNode(item.Funcao ? item.Funcao.Descricao : "-");
+              break;
+            case "Telefone":
+              text = document.createTextNode(item.Telefone ? item.Telefone : (item.Celular ? item.Celular : '-'));
+              break;
+            default:
+              text = document.createTextNode(item[key] || "-");
+              break;
+          }
+
+          cell.appendChild(text);
+        } else {
+          // Lógica para lidar com Demissao
+        }
+      });
+    });
+  }
 });
